@@ -1,0 +1,118 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+main {
+    padding: 1rem;
+    flex: 1;
+}
+
+.goods .good {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.goods .good .image {
+    width: 200px;
+    height: 200px;
+    display: flex;
+}
+
+.goods .good .text {
+    flex: 1;
+}
+
+.goods .good .image img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+.goods .good .delete_button img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.goods .good .price {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.goods .good .price p {
+    color: brown;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.total {
+    background-color: darkgrey;
+    padding: 1rem 0 1rem 1rem;
+    margin-top: 2rem;
+    box-shadow: 0 0 3px rgb(0 0 0 / .25);
+    display: flex;
+    gap: 1rem;
+}
+.total p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+.total .text{
+    flex: 1;
+    text-align: right;
+}
+
+.total .price {
+    color: brown;
+    font-weight: bold;
+    padding-right: calc(5rem + 4px);
+}
+
+.order h2 {
+    text-align: center;
+}
+
+
+@media screen and (max-width:600px) {
+
+    .goods .good .image {
+        width: 100%;
+        height: 200px;
+        display: flex;
+    }
+    
+    .goods .good .price {
+        display: flex;
+        gap: 14rem;
+        align-items: center;
+        padding-bottom: 40px;
+    }
+    
+    .goods .good .price p {
+        font-size: 1.5rem;
+    }
+    .goods .good {
+        display: flex;
+        gap: 0.1rem;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .total {
+        padding: 1rem 0 1rem 1rem;
+        margin-top: 2rem;
+        gap: 1.2rem;
+    }
+    .total p {
+        font-size: 1.7rem;
+    }
+    
+    .total .price {
+        padding-right: 10px;
+    }
+}

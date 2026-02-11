@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: "Pangolin", cursive;
+}
+
+img {
+    display: block;
+}
+
+form label,
+form input,
+form button {
+    display: block;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: #080808;
+    box-shadow: 0 2px 5px rgb(0 0 0 / .25);
+    z-index: 2;
+}
+
+input, textarea{
+    padding: .35rem .75rem;
+    font-size: 1rem;
+    outline: none;
+    border: 2px solid #000;
+    border-radius: .25rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color .5s;
+    resize: none;
+}
+
+.user button{
+    color: white;
+    border-color: white;
+}
+
+.add_to_cart button{
+    border-color: black;
+}
+
+button {
+    cursor: pointer;
+    background: rgba(48, 9, 9, 0);
+    color: black;
+    padding: .5rem 1rem;
+    font-size: .5rem 1rem;
+    border-radius: .5rem;
+    transition: all .5s;
+}
+
+button:hover {
+    background: #ffffff;
+    color: black;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul a {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: all .5s;
+}
+
+a:hover {
+    color: #71757a;
+}
+
+.logo {
+    width: 25%;
+}
+
+.logo img {
+    max-width: 200px;
+    max-height: 200px;
+    margin: auto;
+}
+
+.contacts {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 auto;
+}
+
+.contacts img {
+    width: 2rem;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+
+.user img {
+    width: 2rem;
+}
+
+.user button.icon {
+    padding: 0;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+footer {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    gap: 2rem;
+}
+
+footer p {
+    color: #fff;
+}
+
+footer p.smaller {
+}
+
+#popup_search, #popup_sign, #popup_message {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgb(0 0 0 / .5);
+    display: none;
+
+}
+
+#popup_search.active, #popup_sign.active, #popup_message.active {
+    display: flex;
+}
+
+#popup_search .inner_container, #popup_sign .inner_container, #popup_message .inner_container {
+    background: #fff;
+    min-width: 50%;
+    min-height: auto;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 1rem;
+    overflow: auto;
+}
+
+#popup_search .inner_container form {
+    display: flex;
+    gap: 1rem;
+}
+
+#popup_search .inner_container form>div {
+    flex: 1;
+}
+
+#popup_search .result .good {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#popup_search .result .good .image {
+    width: 150px;
+    height: 150px;
+    display: flex;
+}
+
+#popup_search .result .good .text {
+    flex: 1;
+}
+
+#popup_search .result .image img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+#popup_search .result.delete_button img {
+    width: 2rem;
+    height: 2rem;
+}
+
+#popup_search .result .price {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#popup_search .result .price p {
+    color: brown;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+
+#popup_sign {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgb(0 0 0 / .5);
+    display: none;
+
+}
+
+#popup_sign.active {
+    display: flex;
+}
+
+#popup_sign .inner_container {
+    background: #fff;
+    min-width: 50%;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 1rem;
+    overflow: auto;
+}
+
+#popup_sign .inner_container button {
+display: inline-block;
+}
+
+#popup_sign .inner_container form {
+    display: flex;
+    gap: 1rem;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        width: 25%;
+    }
+
+    .logo img {
+        max-width: 100%;
+        max-height: 125px;
+        margin: auto;
+    }
+
+    .contacts {
+        order: 1;
+        padding: 1rem 0;
+    }
+
+    .user {
+        margin-left: auto;
+    }
+
+    footer {
+        background-color: darkgray;
+        display: flex;
+        align-items: center;
+        padding: 1rem 2rem;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    #popup_search .inner_container {
+        width: 90%;
+    }
+
+    #popup_search .inner_container form {
+display: block;
+    }
+    #popup_search .inner_container form>div {
+        margin-bottom: 1rem;
+    }
+    #popup_search .result .good {
+        display: block;
+    }
+    #popup_search .result .good .image {
+        width: 100%;
+        display: flex;
+    }
+
+}
