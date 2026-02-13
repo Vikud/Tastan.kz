@@ -46,14 +46,18 @@ input, textarea{
     border-color: white;
 }
 
-.add_to_cart button{
-    border-color: black;
+.user button:hover{
+transform: scale(1.1);
+}
+
+.add_to_cart{
+    color: white;
+    border-color: white;
 }
 
 button {
     cursor: pointer;
     background: rgba(48, 9, 9, 0);
-    color: black;
     padding: .5rem 1rem;
     font-size: .5rem 1rem;
     border-radius: .5rem;
@@ -86,8 +90,9 @@ a:hover {
 }
 
 .logo {
-    width: 25%;
+    width: 15%;
 }
+
 
 .logo img {
     max-width: 200px;
@@ -106,6 +111,11 @@ a:hover {
     width: 2rem;
 }
 
+
+ .link:hover img {
+    transform: scale(1.1);
+}
+
 .user {
     display: flex;
     align-items: center;
@@ -115,6 +125,14 @@ a:hover {
 
 .user img {
     width: 2rem;
+}
+
+.user .cart:hover img{
+    transform: scale(1.1);
+}
+
+.user .icon:hover img{
+    transform: scale(1.1);
 }
 
 .user button.icon {
@@ -245,7 +263,6 @@ display: inline-block;
 }
 
 #popup_sign .inner_container form {
-    display: flex;
     gap: 1rem;
 }
 

@@ -1,11 +1,27 @@
 main {
+    position: relative;
     display: flex;
     gap: 1rem;
-    padding-left: 300px;
+    padding-left: 3rem;
     padding-right: 1rem;
-    margin-top: 3rem;
     min-height: calc(100vh - 16.5rem);
     align-items: flex-start;
+    overflow: hidden;
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../image/rave-back.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    filter: blur(8px);
+    z-index: -1;
 }
 
 nav {
@@ -15,32 +31,47 @@ nav {
     left: 0;
     padding: 1rem;
     box-sizing: border-box;
-    z-index: 2;
+    z-index: 100;
     background-color: black;
+    color: white;
+    transition: all .5s;
 }
 
+nav ul {
+    list-style: none;
+    padding: 0;
+}
 
-ul li {
+nav ul li {
     padding: 1rem;
 }
 
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
 
 .nav_button {
     display: none;
 }
 
 .new {
+    margin-top: 3rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 3rem 1rem;
     margin-bottom: 2rem;
     flex: 1;
+    padding-left: 6rem;
 }
 
 .goods .good {
     display: flex;
     flex-direction: column;
-
+    text-decoration: none;
+    color: white;
+    backdrop-filter: blur(10px);
+    width: 60%;
 }
 
 .goods .good:hover img {
@@ -52,38 +83,146 @@ ul li {
     max-height: 300px;
     margin: auto;
     transition: all .5s;
+    /*border: 1px solid gray;*/
 }
 
 .goods .good p {
     text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .goods .good p.price {
     margin-bottom: 0;
-    color: black;
+    color: white;
     font-weight: bold;
     font-size: 1.5rem;
+    margin-top: 1px;
 }
 
 .goods .good button {
     align-self: center;
 }
 
+.close_menu {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+}
+
+.menu-wrapper {
+    margin-top: 3rem;
+    position: sticky;
+    left: 5%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    perspective: 700px;
+    text-align: center;
+}
+
+.nav-trigger {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-nav {
+    width: 250px;
+    position: absolute;
+    left: 50%;
+    margin-left: -125px;
+    top: 50px;
+    opacity: 0;
+    visibility: hidden;
+    transform: rotateX(-90deg);
+    transform-origin: top center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.drop-img {
+    max-width: 100%;
+    max-height: 100px;
+}
+
+.menu-wrapper:hover .dropdown-nav {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateX(0deg);
+}
+
+.menu-wrapper:hover .nav-trigger {
+    transform: scale(0.9) rotate(90deg);
+}
+
+.dropdown-nav ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #222;
+}
+
+.dropdown-nav li {
+    position: relative;
+    background: #333;
+    transition: all 0.3s;
+    border-bottom: 1px solid #444;
+}
+
+.dropdown-nav li a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.dropdown-nav li:hover {
+    background: #ff8000;
+    transform: scale(1.05);
+}
+
+.dropdown-nav li ol {
+    display: block;
+    position: static;
+}
+
+.dropdown-nav li ol li {
+    background: #444;
+}
+
 @media screen and (max-width: 600px) {
     main {
-        padding-left: 4rem;
+        padding-left: 1rem;
         padding-right: 1rem;
     }
 
     nav {
-        background: #fff;
-        box-shadow: 2px 2px 2px rgb(0 0 0 / .25);
+        background: black;
         left: -100%;
-        transition: all .5s;
+        top: 0;
+        height: 100%;
+        padding-top: 60px;
     }
 
     nav.active {
         left: 0;
+    }
+
+    .close_menu {
+        display: block;
     }
 
     .nav_button {
@@ -96,19 +235,11 @@ ul li {
         background: #fff;
         border: none;
         padding: .75rem;
-        box-shadow: 0 0 2px rgba(0 0 0 /.5);
-    }
-
-    .nav_button:hover {
-        background: #fff;
-    }
-
-    .nav_button img {
-        width: 100%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+        z-index: 80;
     }
 
     .goods {
         grid-template-columns: 1fr;
     }
-
 }

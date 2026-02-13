@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p class="name">${good.Name}</p>
                             </div>
                             <div class="price">
-                                <p>${parseFloat(good.Price).toLocaleString('ru-RU')}</p>
+                                <p>${parseFloat(good.Price).toLocaleString('ru-RU')}\u00A0тг.</p>
                             </div> `;
                         search_result.appendChild(a);
                     }

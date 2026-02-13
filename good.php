@@ -66,26 +66,26 @@ $reviews = $db->get_good_reviews($id);
             <div class="info">
                 <h1><?= $good["Name"] ?></h1>
                 <div class="price">
-                    <p><?= number_format($good["Price"], 0, null, " ") ?></p>
-                    <button class="add_to_cart" data-id="<?= $id ?>">Купить</button>
+                    <p class="price"><?= number_format($good["Price"], 0, null, " ") ?>&nbsp;тг.</p>
                 </div>
                 <ul>
                     <?php foreach ($good["Info"] as $info): ?>
                         <li><?= $info ?></li>
                     <?php endforeach; ?>
                 </ul>
+                <button class="add_to_cart" data-id="<?= $id ?>">ДОБАВИТЬ В КОРЗИНУ</button>
             </div>
         </div>
 
         <div class="detail">
             <div class="tab_names">
-                <div class="tab_name active" data-id="1">Характеристики</div>>
+                <div class="tab_name active" data-id="1">Характеристики</div>
                 <div class="tab_name" data-id="2">Описание</div>
                 <div class="tab_name" data-id="3">Отзывы</div>
             </div>
             <div class="tabs">
                 <div class="tab active" data-id="1">
-                    <h2>Техническая характеристика</h2>
+                    <h2>О Товаре</h2>
                     <div class="table">
                         <?php foreach ($good["Specs"] as $spec): ?>
                             <p><?= $spec["name"] ?></p>
@@ -95,7 +95,7 @@ $reviews = $db->get_good_reviews($id);
                 </div>
                 <div class="tab" data-id="2">
                     <h2>Описание</h2>
-                    <?= $good["Description"] ?>
+                    <div class="Desc"><?= $good["Description"] ?></div>
                 </div>
                 <div class="tab" data-id="3">
                     <h2>Отзывы</h2>

@@ -1,5 +1,21 @@
 main {
+    position: relative;
     padding: 1rem;
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../image/rave-back2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    filter: blur(8px);
+    z-index: -1;
 }
 
 .general {
@@ -14,7 +30,6 @@ main {
 .photos .image {
     width: 100%;
     height: 100%;
-    border: 1px solid gray;
     box-sizing: border-box;
     display: flex;
     cursor: pointer;
@@ -27,7 +42,8 @@ main {
 
 .photos .current {
     width: 100%;
-    height: 300px;
+    height: 30rem;
+    box-shadow: 0 0 5px 1px #ffffff;
     margin-bottom: 1rem;
 }
 
@@ -40,7 +56,7 @@ main {
 
 .photos .image:hover,
 .photos .image.active {
-    box-shadow: 0 0 5px 1px #00b7ff;
+    box-shadow: 0 0 5px 1px #ffffff;
 }
 
 .info .price {
@@ -49,8 +65,12 @@ main {
     align-items: center;
 }
 
+.info {
+    color: white;
+}
+
 .info .price p {
-    color: brown;
+    color: #ffffff;
     font-weight: bold;
     font-size: 1.5rem;
     margin-right: 2rem;
@@ -60,19 +80,16 @@ main {
     margin-bottom: 1rem;
 }
 
-.info ul li::before {
-    content: "✔️";
-    display: inline-block;
-    margin-right: .5rem;
-}
-
 .detail {
     margin-top: 2rem;
+    color: white;
 }
+
 
 .detail .tab_names {
     display: flex;
     gap: 2rem;
+    justify-content: center;
 }
 
 .detail .tab_name {
@@ -82,7 +99,7 @@ main {
 }
 
 .detail .tab_name.active {
-    border-bottom-color: #00b7ff;
+    border-bottom-color: #ffffff;
 }
 
 .detail .tabs .tab {
@@ -95,13 +112,24 @@ main {
 
 .detail .table {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 2rem;
+    grid-template-columns: 8ch auto;
+    grid-gap: 1rem;
+    justify-content: center;
+}
+
+.detail .tabs h2 {
+    display: grid;
+    place-items: center;
+}
+
+.detail .tabs .Desc {
+    font-size: 1.5rem;
+    width: 50%;
+    padding-left: 25%;
 }
 
 .detail .table p {
     padding: .25rem;
-    border-bottom: 1px solid #ececec;
     margin: 0 0 1rem 0;
 }
 
@@ -132,7 +160,7 @@ main {
 }
 
 .reviews .review .score {
-    background: #00b7ff;
+    background: #510000;
     width: 4rem;
     height: 4rem;
     color: #fff;

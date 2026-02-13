@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 require_once "vendor/autoload.php";
 use App\DB;
 
@@ -8,7 +8,7 @@ if (isset($_GET["category_id"])) {
 $goods = $db->get_filtered_goods($_GET["category_id"]);
 }
 else {
-    $goods = $db->get_all_goods();  
+    $goods = $db->get_all_goods();
 }
 
 $categories = $db->get_categories();
@@ -34,25 +34,36 @@ $categories = $db->get_categories();
 <?php include "html/popup_message.php"; ?>
 
     <main>
-        <button class="nav_button">
-            <img src="assets/image/menu-svgrepo-com.svg" alt="МЕНЮ">
-        </button>
-        <nav>
-            <ul>
-                <?php foreach ($categories as $category): ?>
-                <li><a href="?category_id=<?=$category["Id"]?>"><?= $category["Name"] ?></a></li>
-                <?php endforeach; ?>
-            </ul>
-        </nav>
+        <div class="menu-wrapper">
+            <div class="nav-trigger">
+                <img class="drop-img" src="assets/image/menu-icon.svg" alt="МЕНЮ">
+            </div>
+            <nav class="dropdown-nav">
+                <ol>
+                    <li>
+                        <a href="index.php">Все категории</a>
+                        <ol>
+                            <?php foreach ($categories as $category): ?>
+                                <li>
+                                    <a href="?category_id=<?= $category["Id"] ?>">
+                                        <?= $category["Name"] ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ol>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
         <div class="new goods">
             <?php foreach ($goods as $good): ?>
                 <a href="good.php?id=<?= $good["Id"] ?>" class="good">
                     <div class="image">
                         <img src="assets/goods/<?= $good["Cover"] ?>" alt="">
                     </div>
-                    <p class="price"><?= number_format($good["Price"], 0, null, " ") ?></p>
                     <p class="name"><?= $good["Name"] ?></p>
-                    <button class="add_to_cart" data-id="<?= $good["Id"] ?>">В Корзину</button>
+                    <p class="price"><?= number_format($good["Price"], 0, null, " ") ?>&nbsp;тг.</p>
                 </a>
             <?php endforeach; ?>
         </div>

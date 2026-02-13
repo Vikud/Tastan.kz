@@ -9,3 +9,4 @@ nav_button.addEventListener("click", (event) => {
 document.addEventListener("click", () => {
     nav.classList.remove("active");
 });
+
